@@ -1,89 +1,296 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>موقع المدرسة</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- رأس الموقع -->
-    <header>
-        <h1>🏫 موقع المدرسة</h1>
+    <!-- شريط الموقع -->
+    <header class="header">
 
-        <nav>
-            <button onclick="showSection('home')">الرئيسية</button>
-            <button onclick="showSection('schedule')">الجداول</button>
-            <button onclick="showSection('news')">الأخبار</button>
-            <button onclick="showSection('contact')">اتصل بنا</button>
+        <div class="logo">
+            🏫 مدرستنا
+        </div>
+
+        <button class="menu-button" onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <nav id="navMenu">
+
+            <button onclick="showSection('home')">
+                🏠 الرئيسية
+            </button>
+
+            <button onclick="showSection('about')">
+                🏫 عن المدرسة
+            </button>
+
+            <button onclick="showSection('schedule')">
+                📅 الجداول
+            </button>
+
+            <button onclick="showSection('news')">
+                📰 الأخبار
+            </button>
+
+            <button onclick="showSection('teachers')">
+                👨‍🏫 الكادر
+            </button>
+
+            <button onclick="showSection('contact')">
+                📞 اتصل بنا
+            </button>
+
         </nav>
+
     </header>
 
 
-    <!-- الصفحة الرئيسية -->
+    <!-- الرئيسية -->
+
     <main>
 
-        <section id="home" class="section">
-            <h2>مرحباً بكم في موقع المدرسة 👋</h2>
+        <section id="home" class="section active">
 
-            <p>
-                أهلاً وسهلاً بكم في الموقع الرسمي للمدرسة.
-            </p>
+            <div class="hero">
 
-            <p>
-                هنا يمكنكم الاطلاع على الجداول والأخبار
-                والتواصل مع إدارة المدرسة.
-            </p>
+                <h1>
+                    مرحباً بكم في موقع مدرستنا 🏫
+                </h1>
+
+                <p>
+                    الموقع الرسمي للمدرسة، حيث تجدون الأخبار
+                    والجداول والمعلومات المدرسية.
+                </p>
+
+                <!-- تعريف أرسلان -->
+                <p>
+                    أنا أرسلان، أعمل على تطوير المواقع 💻
+                </p>
+
+                <button class="main-button" onclick="welcomeMessage()">
+                    👋 مرحباً
+                </button>
+
+            </div>
+
         </section>
 
 
-        <!-- قسم الجداول -->
-        <section id="schedule" class="section" style="display: none;">
-            <h2>📚 الجداول</h2>
+        <!-- عن المدرسة -->
 
-            <p>يمكنكم الاطلاع على جداول المدرسة من هنا.</p>
+        <section id="about" class="section">
 
-            <button onclick="alert('سيتم إضافة الجداول قريباً 📚')">
-                عرض الجداول
-            </button>
+            <div class="card">
+
+                <h2>🏫 عن المدرسة</h2>
+
+                <p>
+                    مدرستنا مؤسسة تعليمية تهدف إلى توفير
+                    بيئة تعليمية مناسبة للطلاب وتطوير
+                    مهاراتهم العلمية والثقافية.
+                </p>
+
+                <button onclick="showMessage('aboutMessage')">
+                    اقرأ المزيد
+                </button>
+
+                <p id="aboutMessage" class="hidden-message">
+                    نعمل على تطوير التعليم وتشجيع الطلاب
+                    على التعلم والإبداع والتميز.
+                </p>
+
+            </div>
+
         </section>
 
 
-        <!-- قسم الأخبار -->
-        <section id="news" class="section" style="display: none;">
-            <h2>📰 أخبار المدرسة</h2>
+        <!-- الجداول -->
 
-            <p>لا توجد أخبار جديدة حالياً.</p>
+        <section id="schedule" class="section">
+
+            <div class="card">
+
+                <h2>📅 جدول الحصص</h2>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <tr>
+                            <th>الحصة</th>
+                            <th>المادة</th>
+                            <th>الوقت</th>
+                        </tr>
+
+                        <tr>
+                            <td>الأولى</td>
+                            <td>الرياضيات</td>
+                            <td>8:00</td>
+                        </tr>
+
+                        <tr>
+                            <td>الثانية</td>
+                            <td>اللغة العربية</td>
+                            <td>8:45</td>
+                        </tr>
+
+                        <tr>
+                            <td>الثالثة</td>
+                            <td>اللغة الإنجليزية</td>
+                            <td>9:30</td>
+                        </tr>
+
+                        <tr>
+                            <td>الرابعة</td>
+                            <td>العلوم</td>
+                            <td>10:15</td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+            </div>
+
         </section>
 
 
-        <!-- قسم اتصل بنا -->
-        <section id="contact" class="section" style="display: none;">
+        <!-- الأخبار -->
 
-            <div class="contact-card">
+        <section id="news" class="section">
+
+            <div class="card">
+
+                <h2>📰 أخبار المدرسة</h2>
+
+                <div class="news-card">
+
+                    <h3>📢 إعلان مهم</h3>
+
+                    <p>
+                        سيتم نشر أخبار وإعلانات المدرسة هنا.
+                    </p>
+
+                    <button onclick="readNews('news1')">
+                        اقرأ الخبر
+                    </button>
+
+                    <p id="news1" class="hidden-message">
+                        يمكن لإدارة المدرسة إضافة تفاصيل
+                        الإعلان هنا لاحقاً.
+                    </p>
+
+                </div>
+
+
+                <div class="news-card">
+
+                    <h3>🏆 نشاط مدرسي</h3>
+
+                    <p>
+                        سيتم نشر أخبار النشاطات والفعاليات.
+                    </p>
+
+                    <button onclick="readNews('news2')">
+                        اقرأ الخبر
+                    </button>
+
+                    <p id="news2" class="hidden-message">
+                        تفاصيل النشاط ستظهر هنا.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- الكادر -->
+
+        <section id="teachers" class="section">
+
+            <div class="card">
+
+                <h2>👨‍🏫 الكادر التدريسي</h2>
+
+                <div class="teacher">
+
+                    <h3>👨‍🏫 المدرس الأول</h3>
+
+                    <p>
+                        المادة: الرياضيات
+                    </p>
+
+                    <button onclick="teacherInfo('teacher1')">
+                        معلومات
+                    </button>
+
+                    <p id="teacher1" class="hidden-message">
+                        سيتم إضافة معلومات المدرس هنا.
+                    </p>
+
+                </div>
+
+
+                <div class="teacher">
+
+                    <h3>👩‍🏫 المدرسة الثانية</h3>
+
+                    <p>
+                        المادة: اللغة العربية
+                    </p>
+
+                    <button onclick="teacherInfo('teacher2')">
+                        معلومات
+                    </button>
+
+                    <p id="teacher2" class="hidden-message">
+                        سيتم إضافة معلومات المدرسة هنا.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- اتصل بنا -->
+
+        <section id="contact" class="section">
+
+            <div class="card">
 
                 <h2>📞 التواصل مع إدارة المدرسة</h2>
 
                 <p>
-                    للاستفسارات والملاحظات، يمكنكم التواصل
-                    مع إدارة المدرسة مباشرة.
+                    للتواصل والاستفسارات، يمكنكم الاتصال
+                    بإدارة المدرسة مباشرة.
                 </p>
 
-                <div class="admin-number">
-                    <span>📱 رقم الإدارة</span>
+                <div class="admin-contact">
 
-                    <a href="tel:07700000000">
-                        07700000000
+                    <h3>📱 رقم الإدارة</h3>
+
+                    <p>
+                        <a href="tel:07700000000">
+                            07700000000
+                        </a>
+                    </p>
+
+                    <a href="tel:07700000000" class="call-button">
+                        📞 الاتصال بالإدارة
                     </a>
-                </div>
 
-                <a class="call-button" href="tel:07700000000">
-                    📞 الاتصال بالإدارة
-                </a>
+                </div>
 
             </div>
 
@@ -92,8 +299,21 @@
     </main>
 
 
+    <!-- أسفل الموقع -->
+
+    <footer>
+
+        <p>
+            © 2026 موقع المدرسة
+        </p>
+
+    </footer>
+
+
     <!-- JavaScript -->
+
     <script src="script.js"></script>
 
 </body>
+
 </html>
