@@ -60,18 +60,12 @@
 
             <div class="hero">
 
-                <h1>
-                    مرحباً بكم في موقع مدرستنا 🏫
+                <h1>مرحباً انا ارسلان أعمل على تطوير المواقع 
                 </h1>
 
                 <p>
                     الموقع الرسمي للمدرسة، حيث تجدون الأخبار
                     والجداول والمعلومات المدرسية.
-                </p>
-
-                <!-- تعريف أرسلان -->
-                <p>
-                    أنا أرسلان، أعمل على تطوير المواقع 💻
                 </p>
 
                 <button class="main-button" onclick="welcomeMessage()">
@@ -221,6 +215,7 @@
 
                 <h2>👨‍🏫 الكادر التدريسي</h2>
 
+
                 <div class="teacher">
 
                     <h3>👨‍🏫 المدرس الأول</h3>
@@ -269,28 +264,26 @@
 
             <div class="card">
 
-                <h2>📞 التواصل مع إدارة المدرسة</h2>
+                <h2>📞 اتصل بنا</h2>
 
                 <p>
-                    للتواصل والاستفسارات، يمكنكم الاتصال
-                    بإدارة المدرسة مباشرة.
+                    يمكنك التواصل مع إدارة المدرسة.
                 </p>
 
-                <div class="admin-contact">
+                <input
+                    type="text"
+                    id="visitorName"
+                    placeholder="اكتب اسمك">
 
-                    <h3>📱 رقم الإدارة</h3>
+                <textarea
+                    id="visitorMessage"
+                    placeholder="اكتب رسالتك"></textarea>
 
-                    <p>
-                        <a href="tel:07700000000">
-                            07700000000
-                        </a>
-                    </p>
+                <button onclick="sendMessage()">
+                    إرسال الرسالة
+                </button>
 
-                    <a href="tel:07700000000" class="call-button">
-                        📞 الاتصال بالإدارة
-                    </a>
-
-                </div>
+                <p id="contactResult"></p>
 
             </div>
 
